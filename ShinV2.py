@@ -62,8 +62,7 @@ def folder():
 IP = requests.get("https://api.ipify.org/").text
 def banner():
 	print (''' %s 
- © Group%s \n _____________  \n _____________ %s> %s ShinXzy \n _____________ %s> %s Script \n  %s>%s  crackFacebook \n _____________ %s>%s Premium \n  \n %s[%s*%s] By : %sM Zainul Umam \n %s[%s*%s] -------------------------------------- \n [%s*%s] IP : %s%s'''%
- (H,K,H,K,H,K,H,K,H,K,P,K,P,H,P,K,P,K,P,H,IP))_____________
+ © Group%s \n _____________  \n _____________ %s> %s ShinXzy \n _____________ %s> %s Script \n  %s>%s  crackFacebook \n _____________ %s>%s Premium \n  \n %s[%s*%s] By : %sM Zainul Umam \n %s[%s*%s] -------------------------------------- \n [%s*%s]''')_____________
 # MASUK TOKEN (TOKEN LISTRIK)
 header = {"x-fb-connection-bandwidth": str(random.randint(20000000.0, 30000000.0)), "x-fb-sim-hni": str(random.randint(20000, 40000)), "x-fb-net-hni": str(random.randint(20000, 40000)), "x-fb-connection-quality": "EXCELLENT", "x-fb-connection-type": "cell.CTRadioAccessTechnologyHSDPA", "user-agent": "NokiaC3-00/5.0 (07.20) Profile/MIDP-2.1 Configuration/CLDC-1.1 Mozilla/5.0 AppleWebKit/420+ (KHTML, like Gecko) Safari/420+ ;]", "content-type": "application/x-www-form-urlencoded", "x-fb-http-engine": "Liger"}
 def masuk():
