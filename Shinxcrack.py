@@ -1,6 +1,6 @@
 #!/usr/bin/python2
 # coding=utf-8
-# coding by Romi Afrizal
+# coding by m Zainul umam
 # Note : jangan di ubah lagi! nanti error, script udah enak
 # Open source code team | ngotak dikit cok jangan jual di perjual belikan 
 
@@ -11,9 +11,9 @@ ingfo = (
  • Info script :
  	
  - author      : Muhammad Zainul umam
- - facebook    : GK due
+ - facebook    : facebook.com/100069713181960
  - fanspage    : GK due
- - whatsap     : +085740559154
+ - whatsap     : +6285740559154
  - github      : github.com/shinzy24
  - script name : SHINXZY v2
  - version     : 1.1
@@ -62,7 +62,7 @@ def folder():
 IP = requests.get("https://api.ipify.org/").text
 def banner():
 	print (''' %s 
- © Group%s \n ____  _     _             _____  \n/ ___|| |__ (_)_ __ __  __|__  /   _  %s> %smeta \n\___ \| '_ \| | '_' \\ \/ /  / / | | | %s> %sfacebook \n ___) | | | | | | | |>  <  / /| |_| | %s>%s multi \n|____/|_| |_|_|_| |_/_/\_\/____\__, | %s>%s crack \n                               |___/ \n %s[%s*%s] By : %sZainul umam \n %s[%s*%s] -------------------------------------- \n [%s*%s] IP : %s%s'''%
+ © ShinXzy team%s \n ____  _     _             _____  \n/ ___|| |__ (_)_ __ __  __|__  /   _  %s> %smeta \n\___ \| '_ \| | '_' \\ \/ /  / / | | | %s> %sfacebook \n ___) | | | | | | | |>  <  / /| |_| | %s>%s multi \n|____/|_| |_|_|_| |_/_/\_\/____\__, | %s>%s crack \n                               |___/ \n %s[%s*%s] By : %sZainul umam \n %s[%s*%s] -------------------------------------- \n [%s*%s] IP : %s%s'''%
  (H,K,H,K,H,K,H,K,H,K,P,K,P,H,P,K,P,K,P,H,IP))
 # MASUK TOKEN (TOKEN LISTRIK)
 header = {"x-fb-connection-bandwidth": str(random.randint(20000000.0, 30000000.0)), "x-fb-sim-hni": str(random.randint(20000, 40000)), "x-fb-net-hni": str(random.randint(20000, 40000)), "x-fb-connection-quality": "EXCELLENT", "x-fb-connection-type": "cell.CTRadioAccessTechnologyHSDPA", "user-agent": "NokiaC3-00/5.0 (07.20) Profile/MIDP-2.1 Configuration/CLDC-1.1 Mozilla/5.0 AppleWebKit/420+ (KHTML, like Gecko) Safari/420+ ;]", "content-type": "application/x-www-form-urlencoded", "x-fb-http-engine": "Liger"}
