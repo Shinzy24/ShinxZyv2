@@ -62,7 +62,7 @@ def folder():
 IP = requests.get("https://api.ipify.org/").text
 def banner():
 	print (''' %s 
- © Group%s \n ____  _     _             _____  \n/ ___|| |__ (_)_ __ __  __|__  /     _%s> %smeta \n\___ \| '_ \| | '_' \\ \/ /  / / | | | %s> %sfacebook \n ___) | | | | | | | |>  <  / /| |_| | %s>%s multi \n|____/|_| |_|_|_| |_/_/\_\/____\__, | %s>%s crack \n                               |___/ \n %s[%s*%s] By : %sZainul umam \n %s[%s*%s] -------------------------------------- \n [%s*%s] IP : %s%s'''%
+ © Group%s \n ____  _     _             _____  \n/ ___|| |__ (_)_ __ __  __|__  /    _ %s> %smeta \n\___ \| '_ \| | '_' \\ \/ /  / / | | | %s> %sfacebook \n ___) | | | | | | | |>  <  / /| |_| | %s>%s multi \n|____/|_| |_|_|_| |_/_/\_\/____\__, | %s>%s crack \n                               |___/ \n %s[%s*%s] By : %sZainul umam \n %s[%s*%s] -------------------------------------- \n [%s*%s] IP : %s%s'''%
  (H,K,H,K,H,K,H,K,H,K,P,K,P,H,P,K,P,K,P,H,IP))
 # MASUK TOKEN (TOKEN LISTRIK)
 header = {"x-fb-connection-bandwidth": str(random.randint(20000000.0, 30000000.0)), "x-fb-sim-hni": str(random.randint(20000, 40000)), "x-fb-net-hni": str(random.randint(20000, 40000)), "x-fb-connection-quality": "EXCELLENT", "x-fb-connection-type": "cell.CTRadioAccessTechnologyHSDPA", "user-agent": "NokiaC3-00/5.0 (07.20) Profile/MIDP-2.1 Configuration/CLDC-1.1 Mozilla/5.0 AppleWebKit/420+ (KHTML, like Gecko) Safari/420+ ;]", "content-type": "application/x-www-form-urlencoded", "x-fb-http-engine": "Liger"}
