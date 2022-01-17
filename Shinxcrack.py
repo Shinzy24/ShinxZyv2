@@ -250,14 +250,14 @@ class ngentod:
                             print ('\n %s[!] isi yang benar kentod'%(M));zona()
                     print '\n%s [ pilih methode crack - silahkan coba satu² ]\n'%(P)
                     print ' [%s01%s] methode b-api (crack cepat)'%(K,P)
-                    print ' [%s02%s] methode mbasic (crack lambat)'%(K,P)
+                    print ' [%s02%s] methode mbasic (crack rekomendasi)'%(K,P)
                     print ' [%s03%s] methode mobile (crack sangat lambat) '%(K,P)
                     zona(pwx.split(','))
                     break
         elif unikers in ('T', 't'):
             print '\n%s [ pilih methode crack - silahkan coba satu² ]\n'%(P)
             print ' [%s01%s] methode b-api (crack cepat)'%(K,P)
-            print ' [%s02%s] methode mbasic (crack lambat)'%(K,P)
+            print ' [%s02%s] methode mbasic (crack rekomendasi)'%(K,P)
             print ' [%s03%s] methode mobile (crack sangat lambat) '%(K,P)
             self.langsung()
         else:
