@@ -16,7 +16,7 @@ ingfo = (
  - whatsap     : +6285740559154
  - github      : github.com/shinzy24
  - script name : SHINXZY v2
- - version     : 1.1
+ - version     : 1.5
  
 %s"""%(Hj,Mt))
 import os
