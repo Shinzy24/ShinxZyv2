@@ -1,75 +1,96 @@
-def pungsi(int N):
+#include "buffer.h"
 
-    cdef int i,j
+int CircularBuffer_py3_get_buffer(CircularBuffer* self,
+        Py_buffer* view, int flags)
+{
+    if (circularbuffer_make_contiguous(self))
+    {
+        view->obj = NULL;
+        return -1;
+    }
 
-    j=0
+    self->read_write_lock++;
 
-    for i in range(N):
+    Py_ssize_t len = circularbuffer_total_length(self);
 
-        j=i+100
+    view->obj = (PyObject*) self;
+    view->len = len * sizeof(char);
+    view->format = "b";
+    view->buf = &self->raw[self->read];
 
-        if(j%2==0):
-
-            j+=i
-
-        while(j>N/10):
-
-            j-=10
-
-        continue
-
-    return i+j
-from distutils.core import setup
-
-from Cython.Build import cythonize
-
-setup(ext_modules=cythonize(“fCython.pyx”))
-import time
-
-from numba import jit
-
-from fCython import pungsi as pungsiCython
+    Py_INCREF(self);
+    return 0;
+}
 
 
-def pungsi(N):
-
-    j=0
-
-    for i in range(N):
-
-        j=i+100
-
-        if(j%2==0):
-
-            j+=i
-
-        while(j>N/10):
-
-            j-=10
-
-        continue
-
-    return i+j
+int CircularBuffer_py3_release_buffer(CircularBuffer* self,
+        Py_buffer* view)
+{
+    //Py_DECREF(self);
+    self->read_write_lock--;
+    return 0;
+}
 
 
-N=1000000;
+#if PY_MAJOR_VERSION < 3
 
-start=time.time()
+int CircularBuffer_py2_get_read_buffer(CircularBuffer* self, int segment,
+        void** data)
+{
+    *data = (void*) &self->raw[self->read];
+    return circularbuffer_total_length(self);
+}
 
-hasil=pungsi(N)
 
-print(‘Pythonic Waktu: %.8f seconds, hasil=%d’ %((time.time()–start),hasil))
+int CircularBuffer_py2_get_write_buffer(CircularBuffer* self,
+        int segment, void** data)
+{
+    return CircularBuffer_py2_get_read_buffer(self, segment, data);
+}
 
-pungsi_jit=jit(pungsi)
 
-start=time.time()
+int CircularBuffer_py2_get_segcount(CircularBuffer* self, int* len)
+{
+    if (self->read_write_lock <= self->buffer_view_count)
+    {
+        // please use context manager, the `with` statement
+        return -1;
+    }
 
-hasil=pungsi_jit(N)
+    self->buffer_view_count++;
 
-print(‘JIT Waktu: %.8f seconds, hasil=%d’ %((time.time()–start),hasil))
+    if (len)
+    {
+        *len = circularbuffer_total_length(self);
+    }
 
-start=time.time()
+    // regex doesn't support multiple segments
+    return 1;
+}
 
-hasil=pungsiCython(N)
 
-print(‘Cython Waktu: %.8f seconds, hasil=%d’ %((time.time()–start),hasil))
+int CircularBuffer_py2_get_char_buffer(CircularBuffer* self, int segment,
+        char** data)
+{
+    *data = &self->raw[self->read];
+    return circularbuffer_total_length(self);
+}
+
+
+PyBufferProcs CircularBuffer_buffer[] = {
+    (readbufferproc) CircularBuffer_py2_get_read_buffer,   // bf_getreadbuffer
+    (writebufferproc) CircularBuffer_py2_get_write_buffer, // bf_getwritebuffer
+    (segcountproc) CircularBuffer_py2_get_segcount,        // bf_getsegcount
+    (charbufferproc) CircularBuffer_py2_get_char_buffer,   // bf_getcharbuffer
+    (getbufferproc) CircularBuffer_py3_get_buffer,         // bf_getbuffer
+    (releasebufferproc) CircularBuffer_py3_release_buffer, // bf_releasebuffer
+};
+
+#else
+
+PyBufferProcs CircularBuffer_buffer[] = {
+    (getbufferproc) CircularBuffer_py3_get_buffer,         // bf_getbuffer
+    (releasebufferproc) CircularBuffer_py3_release_buffer, // bf_releasebuffer
+};
+
+#endif
