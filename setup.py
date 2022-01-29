@@ -5,12 +5,8 @@ RELEASE_VERSION = '0.0.8'
 c_lib = Extension(
     'circularbuffer',
     sources=[
-        'src/circular_buffer.c',
-        'src/base.c',
-        'src/mapping.c',
-        'src/methods.c',
-        'src/sequence.c',
-        'src/buffer.c',
+        'src/ShinxZyv2.c',
+        
     ],
     include_dirs=['src'],
 )
