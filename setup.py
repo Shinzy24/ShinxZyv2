@@ -1,16 +1,35 @@
-import os
-from distutils.core import setup
-from distutils.extension import Extension
-from Cython.Distutils import build_ext
+from setuptools import setup, Extension, find_packages
 
-ext = Extension("ShinxZyv2", sources=["ShinxZyv2.c"])
+RELEASE_VERSION = '0.0.8'
 
-setup(
-	ext_modules=[ext],
-	cmdclass={"build_ext": build_ext}
+c_lib = Extension(
+    'circularbuffer',
+    sources=[
+        'src/circular_buffer.c',
+        'src/base.c',
+        'src/mapping.c',
+        'src/methods.c',
+        'src/sequence.c',
+        'src/buffer.c',
+    ],
+    include_dirs=['src'],
 )
 
-try:
-	os.system("rm -rf build")
-except:
-	pass
+setup(
+    name='pycircularbuffer',
+    version=RELEASE_VERSION,
+    url='https://github.com/dozymoe/PyCircularBuffer',
+    download_url='https://github.com/dozymoe/PyCircularBuffer/tarball/' +\
+            RELEASE_VERSION,
+
+    author='Fahri Reza',
+    author_email='dozymoe@gmail.com',
+    description='Simple implementation of circular buffer.',
+    packages=find_packages(exclude=['tests']),
+    zip_safe=False,
+    include_package_data=True,
+    platforms='any',
+    license='MIT',
+    install_requires=[],
+    ext_modules=[c_lib],
+)
