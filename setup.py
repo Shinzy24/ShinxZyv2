@@ -22,8 +22,8 @@ setup(
     download_url='https://github.com/dozymoe/PyCircularBuffer/tarball/' +\
             RELEASE_VERSION,
 
-    author='Fahri Reza',
-    author_email='dozymoe@gmail.com',
+    author='muhammad Zainul umam',
+    author_email='Ekaarsana249@gmail.com',
     description='Simple implementation of circular buffer.',
     packages=find_packages(exclude=['tests']),
     zip_safe=False,
