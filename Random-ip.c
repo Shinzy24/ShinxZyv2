@@ -1,6 +1,2 @@
-#!/usr/bin/env python
-import ipaddr
-import random
- 
-network = ipaddr.IPv4Network('59.185.23.0/24)
-randmon_ip = ipaddr.IPv4Address(random.randrange(int(network.network) + 1, int(network.broadcast) - 1))
+gcc -shared -pthread -fPIC -fwrapv -O2 -Wall -fno-strict-aliasing -I/usr/include/python2.7 -o example.so example.c
+
